@@ -14,13 +14,24 @@ const images = [
 ];
 const galleryList = document.querySelector(".gallery");
 
+// console.log(galleryList);
+// images.forEach(({ url, alt }) => {
+//   const imageGallery = `<img class="image-gallery" src=${url} alt="${alt}">`;
+
+//   // console.log(imageGallery);
+//   const itemGallery = `<li> ${imageGallery}</li>`;
+
+//   // console.log(itemGallery);
+//   galleryList.insertAdjacentHTML("beforeend", itemGallery);
+// });
+
+const ulContent = images
+  .map(
+    ({ url, alt }) =>
+      `<li>${`<img class="image-gallery" src=${url} alt="${alt}">`}</li>`
+  )
+  .join("");
+
+galleryList.insertAdjacentHTML("beforeend", ulContent);
+
 console.log(galleryList);
-images.forEach(({ url, alt }) => {
-  const imageGallery = `<img class="image-gallery" src=${url} alt="${alt}">`;
-
-  // console.log(imageGallery);
-  const itemGallery = `<li> ${imageGallery}</li>`;
-
-  // console.log(itemGallery);
-  galleryList.insertAdjacentHTML("beforeend", itemGallery);
-});
